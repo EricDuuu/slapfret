@@ -65,6 +65,7 @@ const ChordSelectFretboard: React.FC<{}> = () => {
 
     return (
         <Container>
+            <Heading>Chord Fretboard</Heading>
             <Controls>
                 <OptionSelection
                     onSelectOption={ setRoot }

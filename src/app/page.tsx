@@ -4,6 +4,10 @@ import ScaleSelectFretboard from './containers/ScaleSelectFretboard'
 
 export default function Home() {
   return (
-    <ScaleSelectFretboard/>
+    <div>
+      <ScaleSelectFretboard/>
+      <div className='space-y-5'/>
+      <ChordSelectFretboard/>
+    </div>
   );
 }

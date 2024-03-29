@@ -51,7 +51,8 @@ const ScaleSelectFretboard: React.FC<{}> = () => {
 
     return (
         <Container>
-            <Heading>Scale Demo</Heading>
+            <Heading className='bottom-1'>SlapFret Beta</Heading>
+            <Heading>Scale Fretboard</Heading>
             <Controls>
                 <OptionSelection
                     onSelectOption={ ( value ) => setRoot( value ) }
