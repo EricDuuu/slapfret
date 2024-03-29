@@ -24,14 +24,14 @@ const Note = styled.div`
 `;
 
 interface FlexColumnProps {
-    isActive?: boolean;
+    isactive?: string;
 }
 
 const FlexColumn = styled.div<FlexColumnProps>`
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    opacity: ${ props => props.isActive ? 1 : 0.5 };
+    opacity: ${ props => props.isactive === "true" ? 1 : 0.5 };
 `;
 
 // For now, I don't mind the repeatition. 
@@ -69,7 +69,7 @@ const intervals = [
 const getRelativeChromaticColor = ( semitones: number ) => chromaticColors[ semitones ];
 
 interface IntervalStripProps {
-    root: string;
+    root: any;
     activeIntervals?: string[];
 }
 const IntervalStrip: React.FC<IntervalStripProps> = ({ root, activeIntervals = [] }) => {
@@ -77,22 +77,21 @@ const IntervalStrip: React.FC<IntervalStripProps> = ({ root, activeIntervals = [
 
     return (
         <Container>
-            {intervals.map(interval => {
-                const semitones = Tonal.interval(interval).semitones;
-                const color = getRelativeChromaticColor(semitones % 12);
-                const note = Tonal.transpose(root, interval);
-                const isActive = includes(activeSemitones, semitones);
-                const intervalLabel = interval.replace('1P', 'Root');
+        {intervals.map(interval => {
+            const semitones = Tonal.interval(interval).semitones;
+            const color = getRelativeChromaticColor(semitones % 12);
+            const note = Tonal.transpose(root, interval);
+            const isactive = includes(activeSemitones, semitones);
 
-                return (
-                    // eslint-disable-next-line react/jsx-key
-                    <FlexColumn isActive={isActive}>
-                        <Note color={color}>{simplifyNoteName(note, '#')}</Note>
-                        <Note color={color}>{intervalLabel}</Note>
-                    </FlexColumn>
-                );
-            })}
-        </Container>
+            // Use interval as the key prop
+            return (
+                <FlexColumn key={interval} isactive={isactive.toString()}>
+                    <Note color={color}>{simplifyNoteName(note, '#')}</Note>
+                    <Note color={color}>{interval.replace('1P', 'Root')}</Note>
+                </FlexColumn>
+            );
+        })}
+    </Container>
     );
 };
 

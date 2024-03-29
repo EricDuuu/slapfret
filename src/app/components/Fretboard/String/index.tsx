@@ -60,7 +60,7 @@ const String: React.FC<StringProps> = ( { letter, octave, renderLabel, frets, ro
                 return (
                     <Fret
                         key={ fretIndex }
-                        showNut
+                        shownut={"true"}
                         color={ color }
                     >  
                         { label && renderLabel ? 

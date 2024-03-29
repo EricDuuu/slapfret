@@ -26,7 +26,7 @@ const OptionSelect: React.FC<OptionSelectProps> = ( { options, selectedOption, o
             options.map(
                 ( { label, value } ) => (
                     <OptionButton 
-                        isSelected={ value === selectedOption } 
+                        isselected={ (value === selectedOption).toString() } 
                         onClick={ () => onSelectOption( value ) }
                         key={ `${ label }-${ value }` }
                     >

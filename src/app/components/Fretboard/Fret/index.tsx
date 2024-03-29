@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface FretProps {
-    showNut?: boolean;
+    shownut?: string;
     color?: string;
 }
 
@@ -20,7 +20,7 @@ const Fret = styled.div<FretProps>`
     position: relative;
     color: ${ props => props.color ? props.color : '#555' };
     
-    ${ props => props.showNut && (
+    ${ props => props.shownut === "true" && (
         `&:first-of-type {
             margin-right: 8px;
         }`

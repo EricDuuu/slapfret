@@ -1,5 +1,6 @@
 'use client'
-import ScaleSelectFretboard from './containers/ChordSelectFretboard'
+import ChordSelectFretboard from './containers/ChordSelectFretboard'
+import ScaleSelectFretboard from './containers/ScaleSelectFretboard'
 
 export default function Home() {
   return (

@@ -56,7 +56,7 @@ const getChordLabels = ( root: string, chordType: string ) => {
     );
 }
 
-const ScaleSelectFretboard: React.FC<{}> = () => {
+const ChordSelectFretboard: React.FC<{}> = () => {
     const [ root, setRoot ] = React.useState( rootOptions[ 0 ].value );
     const [ chordType, setChordType ] = React.useState( chordOptions[ 0 ].value );
     const labels = getChordLabels( root, chordType );
@@ -91,4 +91,4 @@ const ScaleSelectFretboard: React.FC<{}> = () => {
     );
 };
 
-export default ScaleSelectFretboard;
+export default ChordSelectFretboard;
